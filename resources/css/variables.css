@@ -1,0 +1,10 @@
+:root {
+    --white: #FDFBF9;
+    --light-black: #1B1B1B;
+    --black: #141414;
+    --blue: #6577B3;
+    --red: #B33F40;
+    --light-red: rgb(247, 91, 74);
+
+    --border-radius: 5px;
+}
