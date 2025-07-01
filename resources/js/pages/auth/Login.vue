@@ -1,3 +1,6 @@
+<template>
+    
+</template>
 <!-- <script setup lang="ts">
     import AuthCard from '@/components/base/AuthCard.vue'; '@/components/generic/Card.vue';
     import Input from '@/components/generic/Input.vue';
