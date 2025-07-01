@@ -2,6 +2,7 @@
     import { ref, onMounted } from 'vue';
     import { Head } from '@inertiajs/vue3';
     import { useLanguage } from '@/composables/useLanguage';
+    import DownloadApp from '@/components/generic/popup/DownloadApp.vue';
 
     const { lang } = defineProps(['lang']);
     const loading = ref(true);
@@ -29,6 +30,7 @@
             
         </aside>
     </main>
+    <DownloadApp />
 </template>
 <style scoped>
     main {
