@@ -2,16 +2,15 @@
     import { X } from 'lucide-vue-next';
     import { ref } from 'vue';
     RegisterWorker();
-    const close_popup = () => {
-        ShowPopup.value = false;
-    }
+
+    const { translation } = defineProps(['translation'])
+    
+    const close_popup = () => ShowPopup.value = false;
 
     const ShowPopup = ref(true);
 </script>
 
 <template>
-    <!-- <button id="ConfirmInstallPWA">Instalar</button>
-    <button id="CancelInstallPWA">Cancelar</button> -->
     <div
         v-if="ShowPopup" 
         id='InstallPWA'
@@ -29,11 +28,11 @@
             <h1
                 class="p-0 m-0"
             >
-                Puede descargar nuestra página para obtener una mejor experiencia
+                {{ translation.PWATEXT }}
             </h1>
         </div>
         <div class="w-100 flex justify-end align-center">
-            <button class="pointer" id="ConfirmInstallPWA">Instalar</button>
+            <button class="pointer" id="ConfirmInstallPWA">{{ translation.install }}</button>
         </div>
     </div>
 </template>

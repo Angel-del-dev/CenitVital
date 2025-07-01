@@ -31,7 +31,7 @@
             
         </aside>
     </main>
-    <DownloadApp />
+    <DownloadApp :translation="translation" />
 </template>
 <style scoped>
     main {
