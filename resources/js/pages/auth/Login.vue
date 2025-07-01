@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
     import AuthCard from '@/components/base/AuthCard.vue'; '@/components/generic/Card.vue';
     import Input from '@/components/generic/Input.vue';
     import Button from '@/components/generic/Button.vue';
@@ -68,4 +68,4 @@
     .container {
         width: 50%;
     }
-</style>
+</style> -->
