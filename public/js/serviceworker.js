@@ -21,12 +21,12 @@ const RegisterWorker = () => {
     
         window.addEventListener('beforeinstallprompt', e => {
             e.preventDefault();
-            console.log('test');
+
             deferredPrompt = e;
             document.getElementById('CancelInstallPWA')?.addEventListener('click', _ => {
                 document.getElementById('InstallPWA')?.remove();
             });
-            document.getElementById('CancelInstallPWA')?.addEventListener('click', _ => createPWA());
+            document.getElementById('ConfirmInstallPWA')?.addEventListener('click', _ => createPWA());
         });
     }
 }
