@@ -1,8 +1,8 @@
 <script setup>
-    RegisterWorker();
+    // RegisterWorker();
 </script>
 
 <template>
-    <button id="ConfirmInstallPWA">Instalar</button>
-    <button id="CancelInstallPWA">Cancelar</button>
+    <!-- <button id="ConfirmInstallPWA">Instalar</button>
+    <button id="CancelInstallPWA">Cancelar</button> -->
 </template>
