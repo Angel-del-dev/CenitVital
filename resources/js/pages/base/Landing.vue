@@ -12,6 +12,7 @@
         translation.value = await useLanguage(lang, 'landing');
         loading.value = false;
     });
+
 </script>
 
 <template>
