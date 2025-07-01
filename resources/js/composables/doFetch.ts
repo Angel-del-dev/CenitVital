@@ -6,7 +6,7 @@ export const doFetch = async (
     const init = {
         method,
         headers: {
-            'X-CSRF-TOKEN': document.head.querySelector("[name~=csrf-token][content]").content,
+            'X-CSRF-TOKEN': window.Laravel.csrfToken,
             "Content-Type": 'application/json',
             'accept': 'application/json'
         },
@@ -19,7 +19,10 @@ export const doFetch = async (
         url,
         init
     )
-        .then(r => r.ok ? { code: r.status, ...r.json() } : { code: r.status, message: 'Uknown error' })
+        .then(async r => {
+            const json = await r.json()
+            return r.ok ? { code: r.status, ...json } : { code: r.status, message: json.error }
+        })
         .then(r => r)
         .catch(r => console.error(r));
 };
