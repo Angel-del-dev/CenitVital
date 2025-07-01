@@ -73,4 +73,10 @@
             display: none;
         }
     }
+
+    @media screen and (max-width: 750px) {
+        #ConfirmInstallPWA {
+            width: 30vmin;
+        }
+    }
 </style>
