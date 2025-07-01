@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\base\LandingController;
+use App\Http\Controllers\Base\LandingController;
 use App\Http\Controllers\Base\LangsController;
 use Illuminate\Support\Facades\Route;
 
