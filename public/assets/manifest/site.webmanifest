@@ -1,0 +1,24 @@
+{
+  "name": "Cenit Vital Wellness & Massage",
+  "short_name": "Cenit Vital",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/assets/img/ico/ico.png",
+      "sizes": "3697x3421",
+      "form_factor": "wide",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/img/ico/ico.png",
+      "sizes": "150x150",
+      "form_factor": "wide",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait"
+}

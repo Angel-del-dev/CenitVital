@@ -6,10 +6,11 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
-
+        <!-- TODO Obtain meta tags by current page -->
         <link rel="icon" href="{{ asset('assets/ico/cenitvital.ico') }}" sizes="any">
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
+        <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+        <link rel="manifest" href="/assets/manifest/site.webmanifest">
 
         <script>
             window.Laravel = {!! json_encode([
