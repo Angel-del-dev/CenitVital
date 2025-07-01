@@ -4,14 +4,14 @@
   "start_url": "/",
   "icons": [
     {
-      "src": "/assets/img/ico/ico.png",
+      "src": "https://cenitvital.com/assets/ico/ico.png",
       "sizes": "3697x3421",
       "form_factor": "wide",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/assets/img/ico/ico.png",
+      "src": "https://cenitvital.com/assets/ico/ico.png",
       "sizes": "150x150",
       "form_factor": "wide",
       "type": "image/png"
