@@ -6,5 +6,4 @@ USE CENITVITAL;
 INSERT into USERS
 (NAME, EMAIL, PASSWORD)
 VALUES
-('AngelNovo', 'angelnovo15@gmail.com', '$2y$12$ayru4ERyHxT4LrsY1WohXOR59fICyPzaXkVcTDTrL.MAKY25hIvzW');
-
+('AngelNovo', 'info@angelnovo.es', '$2y$12$ayru4ERyHxT4LrsY1WohXOR59fICyPzaXkVcTDTrL.MAKY25hIvzW');

@@ -26,7 +26,12 @@
                 <p class="text-white text-right">
                     {{ translation.message }}
                 </p>
-                <ButtonLink classes="float-right" palette="light-danger" :caption="translation.signin" :link="`/${lang}/login`" />
+                <ButtonLink 
+                    classes="float-right" 
+                    palette="light-danger" 
+                    :caption="translation.signin" 
+                    :link="`/${lang}/login`" 
+                />
             </div>
         </article>
         <aside>
