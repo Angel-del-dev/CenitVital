@@ -11,5 +11,8 @@
     "missing_email": "Debe introducir un Email",
     "missing_password": "La contraseña no puede estar vacía",
     "invalid_credentials": "No se ha encontrado el usuario",
-    "page_admin_dashboard": "Dashboard"
+    "page_admin_dashboard": "Dashboard",
+    "page_admin_users": "Usuarios",
+    "page_admin_customers": "Clientes",
+    "page_admin_products": "Artículos"
 }

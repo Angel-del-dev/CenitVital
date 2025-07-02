@@ -76,6 +76,8 @@ body {
 .flex-wrap { flex-wrap: wrap; }
 .flex-nowrap { flex-wrap: nowrap; }
 
+.radius-auto { border-radius: var(--border-radius); }
+
 .h-0 { height: 0; }
 .h-25 { height: 25%; }
 .h-50 { height: 50%; }

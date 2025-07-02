@@ -3,9 +3,9 @@
     import VerticalMenu from './VerticalMenu.vue';
     import Breadcumbs from './Breadcumbs.vue';
     import { Menu, Power } from 'lucide-vue-next';
-import { doFetch } from '@/composables/doFetch';
+    import { doFetch } from '@/composables/doFetch';
 
-    const { breadcumbs, lang } = defineProps(['breadcumbs', 'lang']);
+    const { active, translation, breadcumbs, lang, menu } = defineProps(['active', 'translation', 'breadcumbs', 'lang', 'menu']);
     
     const width = ref(window.innerWidth);
     window.addEventListener('resize', e => {
@@ -32,7 +32,14 @@ import { doFetch } from '@/composables/doFetch';
         class="w-100 h-100 p-3 flex justify-center align-center gap-3"
     >
         <div class="coloured-container"></div>
-        <VerticalMenu :role="Role" :user="User" :toggled="IsMenuToggled" />
+        <VerticalMenu 
+            :menu="menu" 
+            :role="Role" 
+            :user="User" 
+            :toggled="IsMenuToggled" 
+            :translation="translation"
+            :active="active"
+        />
         <div
             id="container"
             class="grow-1 h-100 flex justify-center align-center direction-column"
@@ -51,9 +58,6 @@ import { doFetch } from '@/composables/doFetch';
             </article>
         </div>
     </main>
-    <!-- Aside -->
-    <!-- Navbar -->
-    <!-- Actual content -->
 </template>
 <style scoped>
     main {
