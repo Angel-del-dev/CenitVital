@@ -27,8 +27,8 @@ import { Head } from '@inertiajs/vue3';
             IsButtonDisabled.value = false;
             return ErrorMessage.value = invalid_credentials;
         }
-
-        location.href = `${lang}/${redirect}`;
+        
+        location.href = `/${lang}/${redirect}`;
     };
 
     const email = ref('');

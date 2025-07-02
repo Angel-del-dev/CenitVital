@@ -18,6 +18,11 @@ body {
 }
 
 /* Helpers */
+.overflow-y-auto { overflow-y: auto; }
+.overflow-x-auto { overflow-x: auto; }
+.overflow-y-none { overflow-y: none; }
+.overflow-x-none { overflow-x: none; }
+
 .user-select-none { user-select: none; }
 
 .flex { display: flex; } 

@@ -10,5 +10,6 @@
     "install": "Instalar",
     "missing_email": "Debe introducir un Email",
     "missing_password": "La contraseña no puede estar vacía",
-    "invalid_credentials": "No se ha encontrado el usuario"
+    "invalid_credentials": "No se ha encontrado el usuario",
+    "page_admin_dashboard": "Dashboard"
 }
