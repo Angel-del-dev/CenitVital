@@ -22,13 +22,13 @@ import { Head } from '@inertiajs/vue3';
         if(password.value.trim() === '') return ErrorMessage.value = missing_password;
 
         IsButtonDisabled.value = true;
-        const { code } = await doFetch('/login', 'POST', { email: email.value.trim(), password: password.value.trim() }); 
+        const { code, redirect } = await doFetch('/login', 'POST', { email: email.value.trim(), password: password.value.trim() }); 
         if(code !== 200) {
             IsButtonDisabled.value = false;
             return ErrorMessage.value = invalid_credentials;
         }
 
-        location.href = '/backoffice/';
+        location.href = `${lang}/${redirect}`;
     };
 
     const email = ref('');

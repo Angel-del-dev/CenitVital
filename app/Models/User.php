@@ -47,7 +47,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function user_fragments() {
-        return $this->hasMany(UserFragment::class);
+    public function role() {
+       return $this->belongsTo(Role::class, 'user_role_id', 'id'); 
     }
 }

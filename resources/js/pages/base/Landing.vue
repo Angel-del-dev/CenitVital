@@ -27,6 +27,7 @@
                     {{ translation.message }}
                 </p>
                 <ButtonLink 
+                    
                     classes="float-right" 
                     palette="light-danger" 
                     :caption="translation.signin" 

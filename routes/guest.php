@@ -8,4 +8,8 @@ Route::middleware('guest')->group(function () {
         ->name('login');
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
+
+    if(!env('APP_LANDING', false)) {
+        // TODO Guest routes outside of landing
+    }
 });
