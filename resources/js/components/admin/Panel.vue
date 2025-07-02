@@ -20,6 +20,7 @@
     <main
         class="w-100 h-100 p-3 flex justify-center align-center gap-3"
     >
+        <div class="coloured-container"></div>
         <VerticalMenu :toggled="IsMenuToggled" />
         <div
             id="container"
@@ -53,7 +54,23 @@
         border: 1px solid lightgray;
     }
 
-    nav {
+    #container {
+        z-index: 2;
+    }
 
+    .coloured-container {
+        background-color: var(--blue);
+        width: 100%;
+        height: 20dvh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1
+    }
+
+    @media screen and (max-width: 700px) {
+        main {
+            padding: 0;
+        }
     }
 </style>

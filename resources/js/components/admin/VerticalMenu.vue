@@ -18,6 +18,7 @@ import { ref } from 'vue';
         background-color: var(--white);
         border: 1px solid lightgray;
         border-radius: var(--border-radius);
+        z-index: 2;
     }
 
     @media screen and (max-width: 700px) {
@@ -27,6 +28,7 @@ import { ref } from 'vue';
             background-color: var(--light-black);
             border: 1px solid var(--light-black);
             border-radius: 0;
+            z-index: 10;
         }
     }
 </style>

@@ -11,7 +11,7 @@
     a,
     a:visited,
     a:active {
-        color: gray;
+        color: var(--black);
         text-decoration: none;
     }
 

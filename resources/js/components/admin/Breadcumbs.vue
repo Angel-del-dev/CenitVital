@@ -7,7 +7,7 @@ import SimpleLink from '../links/SimpleLink.vue';
     <div>
         <SimpleLink 
             v-for="({Caption, Link}, Index) in current"
-            :caption="Caption" :link="Link" :active="Index === (current.length - 1)"
+            :caption="Caption" :link="Link" :active="false"
         >/</SimpleLink>
     </div>
 </template>
