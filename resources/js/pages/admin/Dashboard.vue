@@ -18,7 +18,7 @@ import { onMounted, ref } from 'vue';
 </script>
 <template>
     <Head :title="translation.page_admin_dashboard" />
-    <Panel :breadcumbs="page_location">
+    <Panel :breadcumbs="page_location" :lang="lang">
         TODO Insert Charts here
     </Panel>
 </template>

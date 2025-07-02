@@ -59,6 +59,9 @@ body {
 .m-4 { margin: 20px; }
 .m-5 { margin: 25px; }
 
+.ml-auto { margin-left: auto; }
+.ml-right { margin-right: auto; }
+
 .flex-1 { flex: 1; }
 .flex-2 { flex: 2; }
 .flex-3 { flex: 3; }

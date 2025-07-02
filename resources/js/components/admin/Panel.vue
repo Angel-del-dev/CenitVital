@@ -1,10 +1,11 @@
 <script setup lang="ts">
-    import { ref } from 'vue';
+    import { onMounted, ref } from 'vue';
     import VerticalMenu from './VerticalMenu.vue';
     import Breadcumbs from './Breadcumbs.vue';
-    import { Menu } from 'lucide-vue-next';
+    import { Menu, Power } from 'lucide-vue-next';
+import { doFetch } from '@/composables/doFetch';
 
-    const { breadcumbs } = defineProps(['breadcumbs']);
+    const { breadcumbs, lang } = defineProps(['breadcumbs', 'lang']);
     
     const width = ref(window.innerWidth);
     window.addEventListener('resize', e => {
@@ -12,8 +13,18 @@
         IsMenuToggled.value = !(width.value <= 700);
     });
     const IsMenuToggled = ref(!(width.value <= 700));
+    const User = ref({});
+    const Role = ref({});
 
     const change_menu_state = () => IsMenuToggled.value = !IsMenuToggled.value;
+    const logout = async () => {
+        await doFetch('/logout', 'POST');
+        location.href = `/${lang}/login`;
+    };
+    onMounted(() => {
+        User.value = window.Laravel.user;
+        Role.value = window.Laravel.user.role;
+    });
 </script>
 
 <template>
@@ -21,7 +32,7 @@
         class="w-100 h-100 p-3 flex justify-center align-center gap-3"
     >
         <div class="coloured-container"></div>
-        <VerticalMenu :toggled="IsMenuToggled" />
+        <VerticalMenu :role="Role" :user="User" :toggled="IsMenuToggled" />
         <div
             id="container"
             class="grow-1 h-100 flex justify-center align-center direction-column"
@@ -31,6 +42,7 @@
             >   
                 <Menu class="pointer" @click="change_menu_state" />
                 <Breadcumbs :current="breadcumbs" />
+                <Power @click="logout" class="ml-auto pointer" />
             </nav>
             <article
                 class="w-100 grow-1 p-2 overflow-y-auto"

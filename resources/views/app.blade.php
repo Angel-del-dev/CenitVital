@@ -16,7 +16,9 @@
             window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
             'user' => Auth::user(),
-            'api_token' => (Auth::user()) ? Auth::user()->api_token : null
+            'role' => Auth::user()->role,
+            'api_token' => (Auth::user()) ? Auth::user()->api_token : null,
+            'app_name' => env('APP_NAME')
         ]) !!};
         </script>
         @routes
