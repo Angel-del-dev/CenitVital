@@ -1,0 +1,14 @@
+{
+    "page_login": "Sign in",
+    "page_landing": "Landing",
+    "email": "Email",
+    "password": "Password",
+    "signinbutton": "Sign in",
+    "signin": "Sign in",
+    "message": "Comming Soon...",
+    "PWATEXT": "Our website can be installed to provide a better experience",
+    "install": "Install",
+    "missing_email": "An email must be provided",
+    "missing_password": "A password must be provided",
+    "invalid_credentials": "User not found"
+}

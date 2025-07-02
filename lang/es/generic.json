@@ -1,0 +1,14 @@
+{
+    "page_login": "Iniciar sesión",
+    "page_landing": "Inicio",
+    "email": "Correo",
+    "password": "Contraseña",
+    "signinbutton": "Acceder",
+    "signin": "Iniciar sesión",
+    "message": "Proximamente...",
+    "PWATEXT": "Puede descargar nuestra página para obtener una mejor experiencia",
+    "install": "Instalar",
+    "missing_email": "Debe introducir un Email",
+    "missing_password": "La contraseña no puede estar vacía",
+    "invalid_credentials": "No se ha encontrado el usuario"
+}

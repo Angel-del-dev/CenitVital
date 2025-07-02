@@ -9,7 +9,8 @@ Route::get('/utils/translations/{desired_lang}/{desired_section}', [LangsControl
 if(env('APP_LANDING', false)) {
     Route::fallback([LandingController::class, 'Redirect'])->name('LandingRedirect');
     Route::get('{lang}/landing', [LandingController::class, 'Create'])->name('landing');
-} else {
-    require __DIR__.'/guest.php';
-    require __DIR__.'/auth.php';
 }
+
+require __DIR__.'/guest.php';
+require __DIR__.'/auth.php';
+

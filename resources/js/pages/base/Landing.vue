@@ -3,20 +3,21 @@
     import { Head } from '@inertiajs/vue3';
     import { useLanguage } from '@/composables/useLanguage';
     import DownloadApp from '@/components/generic/popup/DownloadApp.vue';
+    import ButtonLink from '@/components/links/ButtonLink.vue';
 
     const { lang } = defineProps(['lang']);
     const loading = ref(true);
     let translation = ref({});
 
     onMounted(async () => {
-        translation.value = await useLanguage(lang, 'landing');
+        translation.value = await useLanguage(lang, 'generic');
         loading.value = false;
     });
 
 </script>
 
 <template>
-    <Head title="Landing" />
+    <Head :title="translation.page_landing" />
     <main class='user-select-none'>
         <article>
             <div class='small-container p-3'>
@@ -25,6 +26,7 @@
                 <p class="text-white text-right">
                     {{ translation.message }}
                 </p>
+                <ButtonLink classes="float-right" palette="light-danger" :caption="translation.signin" :link="`/${lang}/login`" />
             </div>
         </article>
         <aside>

@@ -15,9 +15,9 @@ class AuthenticatedSessionController extends Controller
     /**
      * Show the login page.
      */
-    public function create(Request $request): Response
+    public function create(string $lang): Response
     {
-        return Inertia::render('auth/Login');
+        return Inertia::render('auth/Login', ['lang' => $lang]);
     }
 
     /**
