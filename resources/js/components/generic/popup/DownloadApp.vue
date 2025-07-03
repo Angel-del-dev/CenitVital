@@ -47,7 +47,7 @@
         height: fit-content;
         background-color: white;
         position: absolute;
-        top: 10px;
+        bottom: 10px;
         right: 10px;
         border-radius: var(--border-radius);
         z-index: 10;

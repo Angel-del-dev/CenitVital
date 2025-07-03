@@ -27,8 +27,6 @@ import { onMounted, ref } from 'vue';
         active="page_admin_dashboard"
     >
         TODO Insert Charts here
-        <br />
-        TODO Remove comments from DownloadApp
     </Panel>
-    <!-- <DownloadApp :translation="translation" /> -->
+    <DownloadApp :translation="translation" />
 </template>
