@@ -51,6 +51,7 @@
         right: 10px;
         border-radius: var(--border-radius);
         z-index: 10;
+        box-shadow: 2px 2px 2px 2px lightgray;
     }
 
     h1 {

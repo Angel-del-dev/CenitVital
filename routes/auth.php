@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\guest\GuestDashboardController;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +15,7 @@ Route::middleware('auth')->group(function () {
 
     // Admin panel
     Route::get('{lang}/panel', [DashboardController::class, 'create']);
+    Route::get('{lang}/panel/users', [UsersController::class, 'create']);
     // Guest panel
     Route::get('{lang}/my-place', [GuestDashboardController::class, 'create']);
        

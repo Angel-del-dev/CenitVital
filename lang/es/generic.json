@@ -14,5 +14,7 @@
     "page_admin_dashboard": "Dashboard",
     "page_admin_users": "Usuarios",
     "page_admin_customers": "Clientes",
-    "page_admin_products": "Artículos"
+    "page_admin_products": "Artículos",
+    "user": "Usuario",
+    "name": "Nombre"
 }
