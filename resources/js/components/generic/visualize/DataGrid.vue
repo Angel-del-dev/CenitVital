@@ -3,10 +3,10 @@ import { ref } from 'vue';
 import GridData from './GridData.vue';
 import GridHead from './GridHead.vue';
 import GridControls from './GridControls.vue';
-    const { translation, data, columns, onselect } = defineProps(['translation', 'data', 'columns', 'onselect']);
-    data.push(...data);
-    data.push(...data);
-    data.push(...data);
+import GridHeadControls from './GridHeadControls.vue';
+    const { 
+        translation, data, columns, onselect, onnew
+    } = defineProps(['translation', 'data', 'columns', 'onselect', 'onnew']);
 
     const page_change = index => {
         page.value += index;
@@ -18,11 +18,16 @@ import GridControls from './GridControls.vue';
     const page = ref(0);
     const slice_index = ref(page_size.value * page.value);
     const slice = ref(data.slice(slice_index.value, slice_index.value+page_size.value));
+
+    const selected = ref(null);
 </script>
 <template>
     <div
         class='grid-wrapper w-100 h-100 user-select-none'
     >
+        <GridHeadControls 
+            :on_new="onnew"
+        />
         <table
             class="w-100"
         >
@@ -33,6 +38,7 @@ import GridControls from './GridControls.vue';
             <GridData 
                 :data="slice"
                 :onselect="onselect"
+                :selectedindex="selected"
             />
         </table>
         <GridControls 

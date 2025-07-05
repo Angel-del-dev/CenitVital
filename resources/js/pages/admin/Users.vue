@@ -19,6 +19,9 @@ import { onMounted, ref } from 'vue';
     const select_user = row => {
         console.log(row);
     };
+    const on_new = () => {
+        console.log('New');
+    }
 
     const columns = ['user', 'name'];
 </script>
@@ -36,6 +39,7 @@ import { onMounted, ref } from 'vue';
             :columns="columns"
             :data="users"
             :onselect="select_user"
+            :onnew="on_new"
         />
     </Panel>
 </template>

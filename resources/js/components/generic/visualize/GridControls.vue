@@ -33,11 +33,11 @@ import { ChevronLeft, ChevronRightIcon } from 'lucide-vue-next';
     }
 
     button:first-of-type {
-        border-radius: 5px 0 0 5px;
+        border-radius: var(--border-radius) 0 0 var(--border-radius);
     }
 
     button:last-of-type {
-        border-radius: 0 5px 5px 0;
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
     }
 
     button[active="false"] {
