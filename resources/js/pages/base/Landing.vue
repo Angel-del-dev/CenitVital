@@ -5,7 +5,7 @@
     import DownloadApp from '@/components/generic/popup/DownloadApp.vue';
     import ButtonLink from '@/components/links/ButtonLink.vue';
 
-    const { lang } = defineProps(['lang']);
+    const { lang, islogged } = defineProps(['lang', 'isadmin']);
     const loading = ref(true);
     let translation = ref({});
 
@@ -13,7 +13,6 @@
         translation.value = await useLanguage(lang, 'generic');
         loading.value = false;
     });
-
 </script>
 
 <template>
@@ -27,11 +26,18 @@
                     {{ translation.message }}
                 </p>
                 <ButtonLink 
-                    
+                    v-if="!islogged"
                     classes="float-right" 
                     palette="light-danger" 
                     :caption="translation.signin" 
                     :link="`/${lang}/login`" 
+                />
+                <ButtonLink 
+                    v-else
+                    classes="float-right" 
+                    palette="light-danger" 
+                    :caption="translation.page_admin_dashboard" 
+                    :link="`/${lang}/panel`" 
                 />
             </div>
         </article>
