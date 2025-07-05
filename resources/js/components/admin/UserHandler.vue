@@ -17,7 +17,7 @@ import {  ref } from 'vue';
         
         const isCreation = user.id === undefined;
         const { code, message } = await doFetch(
-            `/panel/user/${isCreation ? '' : user.id}`,
+            `/panel/user${isCreation ? '' : '/'+user.id}`,
             isCreation ? 'POST' : 'PUT',
             user
         );
