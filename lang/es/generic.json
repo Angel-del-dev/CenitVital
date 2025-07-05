@@ -16,5 +16,13 @@
     "page_admin_customers": "Clientes",
     "page_admin_products": "Artículos",
     "user": "Usuario",
-    "name": "Nombre"
+    "name": "Nombre",
+    "new": "Nuevo",
+    "phone": "Teléfono",
+    "observations": "Observaciones",
+    "birth": "Fecha de nacimiento",
+    "confirm": "Confirmar",
+    "user_exists": "El usuario ya existe",
+    "user_empty": "Debe indicar un nombre para el usuario",
+    "email_empty": "El correo electrónico debe tener valor"
 }

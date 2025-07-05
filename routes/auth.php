@@ -16,6 +16,9 @@ Route::middleware('auth')->group(function () {
     // Admin panel
     Route::get('{lang}/panel', [DashboardController::class, 'create']);
     Route::get('{lang}/panel/users', [UsersController::class, 'create']);
+    Route::get('{lang}/panel/users/new', [UsersController::class, 'create_new']);
+    Route::post('/panel/user', [UsersController::class, 'store']);
+    Route::put('/panel/user/{id}', [UsersController::class, 'update']);
     // Guest panel
     Route::get('{lang}/my-place', [GuestDashboardController::class, 'create']);
        

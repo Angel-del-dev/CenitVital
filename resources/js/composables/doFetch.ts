@@ -21,7 +21,7 @@ export const doFetch = async (
     )
         .then(async r => {
             const json = await r.json()
-            return r.ok ? { code: r.status, ...json } : { code: r.status, message: json.error }
+            return { code: r.status, message: r.statusText, ...json };
         })
         .then(r => r)
         .catch(r => console.error(r));
