@@ -5,7 +5,7 @@
     import DownloadApp from '@/components/generic/popup/DownloadApp.vue';
     import ButtonLink from '@/components/links/ButtonLink.vue';
 
-    const { lang, islogged } = defineProps(['lang', 'isadmin']);
+    const { lang, islogged } = defineProps(['lang', 'islogged']);
     const loading = ref(true);
     let translation = ref({});
 
