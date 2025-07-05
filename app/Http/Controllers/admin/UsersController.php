@@ -37,6 +37,18 @@ class UsersController extends Controller
         ]);
     }
 
+    public function modify(string $lang, int $id) {
+        $user = User::where('id', '=', $id)
+            ->first()
+            ->toArray();
+        return Inertia::render('admin/User',[
+            'lang' => $lang,
+            'user' => $user,
+            'menu' => new AdminMenu()->GetMenu($lang),
+            'creation' => true
+        ]);
+    }
+
     public function store(Request $request) {
         $user = $request->all();
         $user_count = User::where('email', '=', $user['email'])->count();
@@ -47,6 +59,17 @@ class UsersController extends Controller
     }
 
     public function update(Request $request, int $id) {
+        $user = $request->all();
+        unset($user['created_at'], $user['updated_at']);
+       
+        if(isset($user['password'])) {
+            if($user['password'] === '') unset($user['password']);
+            else $user['password'] = Hash::make($user['password']);
+        }
 
+        
+        User::where('id', '=', $id)
+            ->update($user);
+        return response([], 200);
     }
 }

@@ -16,9 +16,7 @@ import { onMounted, ref } from 'vue';
         page_location.value.push({ Caption: translation.value.page_admin_users, Link: `/${lang}/panel/users` });
     });
 
-    const select_user = row => {
-        console.log(row);
-    };
+    const select_user = row => location.href = `/${lang}/panel/users/edit/${row[0]}`;
     const on_new = () => location.href = `/${lang}/panel/users/new`;
 
     const columns = ['user', 'name'];

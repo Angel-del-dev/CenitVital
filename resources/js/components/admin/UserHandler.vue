@@ -21,8 +21,6 @@ import {  ref } from 'vue';
         if(code === 200) return location.href = `/${lang}/panel/users`;
         error_message.value = translation[message];
     };
-    
-
     let error_message = ref('');
 </script>
 <template>
@@ -52,13 +50,13 @@ import {  ref } from 'vue';
                 type="text"
             />
         </div>
-        <Input
-            :label="translation.password"
-            :placeholder="translation.password"
-            :update="value => user.password = value"
-            type="password"
-        />
         <div class="w-100 flex justify-center align-center gap-2">
+            <Input
+                :label="translation.password"
+                :placeholder="translation.password"
+                :update="value => user.password = value"
+                type="password"
+            />
             <Input
                 :label="translation.phone"
                 :value="`${user.phone ?? ''}`"
@@ -66,13 +64,13 @@ import {  ref } from 'vue';
                 :update="value => user.phone = value"
                 type="tel"
             />
-            <Input
+            <!-- <Input
                 :label="translation.birth"
                 :value="`${user.dateofbirth ?? ''}`"
                 :placeholder="translation.birth"
                 :update="value => user.dateofbirth = value"
                 type="date"
-            />
+            /> -->
         </div>
         <TextArea
             :label="translation.observations"
