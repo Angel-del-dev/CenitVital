@@ -1,9 +1,10 @@
 <script setup>
-    const { disabled, palette } = defineProps(['disabled', 'palette']);
+    const { disabled, palette, click } = defineProps(['disabled', 'palette', 'click']);
 </script>
 <template>
     <button 
-        class="flex justify-center align-center pointer p-1"
+        @click="e => {if(click !== undefined ) { e.preventDefault(); click()}}"
+        class="flex justify-center align-center pointer p-1 gap-2"
         :disabled="disabled" :palette="palette"
     >
         <slot />

@@ -22,7 +22,10 @@
     "observations": "Observaciones",
     "birth": "Fecha de nacimiento",
     "confirm": "Confirmar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
     "user_exists": "El usuario ya existe",
     "user_empty": "Debe indicar un nombre para el usuario",
-    "email_empty": "El correo electrónico debe tener valor"
+    "email_empty": "El correo electrónico debe tener valor",
+    "confirm_delete_user": "¿Quieres eliminar el usuario? El proceso es irreversible"
 }

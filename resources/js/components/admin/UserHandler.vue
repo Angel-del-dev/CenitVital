@@ -2,9 +2,10 @@
     import Input from '@/components/generic/inputs/Text.vue';
     import TextArea from '@/components/generic/inputs/TextArea.vue';
     import Button from '@/components/generic/Button.vue';
-    import { Check } from 'lucide-vue-next';
+    import { Check, Trash } from 'lucide-vue-next';
 import { doFetch } from '@/composables/doFetch';
 import Alert from './Alert.vue';
+import Confirm from './Confirm.vue';
 import {  ref } from 'vue';
     const { translation, user, creation, lang } = defineProps(['translation', 'user', 'creation', 'lang']);
 
@@ -21,7 +22,20 @@ import {  ref } from 'vue';
         if(code === 200) return location.href = `/${lang}/panel/users`;
         error_message.value = translation[message];
     };
+
+    const confirm_remove = async () => {
+        const { code, message } = await doFetch(
+            `/panel/user/${user.id}`,
+            'DELETE',
+            user
+        );
+        if(code === 200) return location.href = `/${lang}/panel/users`;
+        error_message.value = translation[message];
+    };
+
+    const delete_user = () => confirm_message.value = translation.confirm_delete_user;
     let error_message = ref('');
+    let confirm_message = ref('');
 </script>
 <template>
     <form 
@@ -79,8 +93,16 @@ import {  ref } from 'vue';
             :update="value => user.observations = value"
         />
         <div
-            class="actions w-100 flex justify-end align-center"
+            class="actions w-100 flex justify-end align-center gap-2"
         >
+            <Button
+                v-if="!creation"
+                :click="delete_user"
+                palette="light-danger"
+            >
+                <Trash />
+                {{ translation.delete }}
+            </Button>
             <Button
                 palette="primary"
             >
@@ -95,6 +117,12 @@ import {  ref } from 'vue';
     >
         {{ error_message }}
     </Alert>
+    <Confirm
+        :active="confirm_message !== ''"
+        :on_cancel="() => confirm_message = ''"
+        :on_confirm="confirm_remove"
+        :translation="translation"
+    >{{ confirm_message }}</Confirm>
 </template>
 <style scoped>
     .actions {

@@ -45,7 +45,7 @@ class UsersController extends Controller
             'lang' => $lang,
             'user' => $user,
             'menu' => new AdminMenu()->GetMenu($lang),
-            'creation' => true
+            'creation' => false
         ]);
     }
 
@@ -70,6 +70,13 @@ class UsersController extends Controller
         
         User::where('id', '=', $id)
             ->update($user);
+        return response([], 200);
+    }
+
+    public function delete(int $id) {
+        User::where('id', '=', $id)
+            ->delete();
+        
         return response([], 200);
     }
 }

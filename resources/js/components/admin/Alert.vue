@@ -1,6 +1,5 @@
 <script setup>
 import { X } from 'lucide-vue-next';
-import { ref, watch } from 'vue';
 
     const {active, on_cancel} = defineProps(['active', 'on_cancel']);
 </script>

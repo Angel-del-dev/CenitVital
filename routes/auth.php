@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::get('{lang}/panel/users/edit/{id}', [UsersController::class, 'modify']);
     Route::post('/panel/user', [UsersController::class, 'store']);
     Route::put('/panel/user/{id}', [UsersController::class, 'update']);
+    Route::delete('/panel/user/{id}', [UsersController::class, 'delete']);
     // Guest panel
     Route::get('{lang}/my-place', [GuestDashboardController::class, 'create']);
        

@@ -21,8 +21,11 @@
     "phone": "Phone",
     "observations": "Observations",
     "birth": "Date of birth",
+    "cancel": "Cancel",
     "confirm": "Confirm",
+    "delete": "Remove",
     "user_exists": "The user already exists",
     "user_empty": "A name must be given",
-    "email_empty": "Email must be provided"
+    "email_empty": "Email must be provided",
+    "confirm_delete_user": "Do you want to remove the given user? The process cannot be undone"
 }
