@@ -14,7 +14,7 @@ class DashboardController extends Controller
         if(Auth::user()->role->name !== 'ADMIN') return redirect("/{$lang}/my-place");
         return Inertia::render('admin/Dashboard', [
             'lang' => $lang, 
-            'menu' => new AdminMenu()->GetMenu($lang)
+            'menu' => (new AdminMenu())->GetMenu($lang)
         ]);
     }
 }

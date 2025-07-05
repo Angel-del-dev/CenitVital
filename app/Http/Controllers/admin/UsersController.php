@@ -24,7 +24,7 @@ class UsersController extends Controller
         return Inertia::render('admin/Users',[
             'lang' => $lang,
             'users' => $final_users,
-            'menu' => new AdminMenu()->GetMenu($lang)
+            'menu' => (new AdminMenu())->GetMenu($lang)
         ]);
     }
 
@@ -33,7 +33,7 @@ class UsersController extends Controller
         return Inertia::render('admin/User',[
             'lang' => $lang,
             'user' => ['user_role_id' => 1],
-            'menu' => new AdminMenu()->GetMenu($lang),
+            'menu' => (new AdminMenu())->GetMenu($lang),
             'creation' => true
         ]);
     }
@@ -46,7 +46,7 @@ class UsersController extends Controller
         return Inertia::render('admin/User',[
             'lang' => $lang,
             'user' => $user,
-            'menu' => new AdminMenu()->GetMenu($lang),
+            'menu' => (new AdminMenu())->GetMenu($lang),
             'creation' => false
         ]);
     }
@@ -63,7 +63,7 @@ class UsersController extends Controller
         return Inertia::render('admin/Customers',[
             'lang' => $lang,
             'users' => $final_users,
-            'menu' => new AdminMenu()->GetMenu($lang)
+            'menu' => (new AdminMenu())->GetMenu($lang)
         ]);
     }
 
@@ -72,7 +72,7 @@ class UsersController extends Controller
         return Inertia::render('admin/Customer',[
             'lang' => $lang,
             'user' => ['user_role_id' => 2],
-            'menu' => new AdminMenu()->GetMenu($lang),
+            'menu' => (new AdminMenu())->GetMenu($lang),
             'creation' => true
         ]);
     }
@@ -85,7 +85,7 @@ class UsersController extends Controller
         return Inertia::render('admin/Customer',[
             'lang' => $lang,
             'user' => $user,
-            'menu' => new AdminMenu()->GetMenu($lang),
+            'menu' => (new AdminMenu())->GetMenu($lang),
             'creation' => false
         ]);
     }
