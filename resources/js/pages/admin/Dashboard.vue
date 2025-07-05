@@ -1,5 +1,6 @@
 <script setup>
 import Panel from '@/components/admin/Panel.vue';
+import Card from '@/components/generic/cards/Card.vue';
 import DownloadApp from '@/components/generic/popup/DownloadApp.vue';
 import { useLanguage } from '@/composables/useLanguage';
 import { Head } from '@inertiajs/vue3';
@@ -26,7 +27,13 @@ import { onMounted, ref } from 'vue';
         :translation="translation"
         active="page_admin_dashboard"
     >
-        TODO Insert Charts here
+        <div
+            class="w-100 flex justify-start align-center gap-2 flex-wrap"
+        >
+            <Card>TODO Cantidad de citas reservadas de este mes + porcentaje de añadidos este mes en comparación al mes pasado</Card>
+            <Card>TODO Cantidad de clientes totales + porcentaje de añadidos este mes</Card>
+        </div>
+        
     </Panel>
     <DownloadApp :translation="translation" />
 </template>

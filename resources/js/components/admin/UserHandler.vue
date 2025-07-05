@@ -7,7 +7,9 @@ import { doFetch } from '@/composables/doFetch';
 import Alert from './Alert.vue';
 import Confirm from './Confirm.vue';
 import {  ref } from 'vue';
-    const { translation, user, creation, lang } = defineProps(['translation', 'user', 'creation', 'lang']);
+    const { 
+        translation, user, creation, lang, redirect
+    } = defineProps(['translation', 'user', 'creation', 'lang', 'redirect']);
 
     const create_or_insert = async () => {
         if(user.name === undefined || user.name === '') return error_message.value = translation.user_empty;
@@ -19,7 +21,7 @@ import {  ref } from 'vue';
             isCreation ? 'POST' : 'PUT',
             user
         );
-        if(code === 200) return location.href = `/${lang}/panel/users`;
+        if(code === 200) return location.href = redirect;
         error_message.value = translation[message];
     };
 
@@ -29,7 +31,7 @@ import {  ref } from 'vue';
             'DELETE',
             user
         );
-        if(code === 200) return location.href = `/${lang}/panel/users`;
+        if(code === 200) return location.href = redirect;
         error_message.value = translation[message];
     };
 
@@ -45,7 +47,6 @@ import {  ref } from 'vue';
         class="user-select-none w-100 h-100 flex justify-start align-start direction-column"
         @submit.prevent="create_or_insert"
     >
-        <!-- TODO Image -->
         <div
             class="w-100 flex justify-center align-center gap-2"    
         >

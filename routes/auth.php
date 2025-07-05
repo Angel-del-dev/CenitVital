@@ -18,6 +18,11 @@ Route::middleware('auth')->group(function () {
     Route::get('{lang}/panel/users', [UsersController::class, 'create']);
     Route::get('{lang}/panel/users/new', [UsersController::class, 'create_new']);
     Route::get('{lang}/panel/users/edit/{id}', [UsersController::class, 'modify']);
+
+    Route::get('{lang}/panel/customers', [UsersController::class, 'create_customer']);
+    Route::get('{lang}/panel/customers/new', [UsersController::class, 'create_new_customer']);
+    Route::get('{lang}/panel/customers/edit/{id}', [UsersController::class, 'modify_customer']);
+
     Route::post('/panel/user', [UsersController::class, 'store']);
     Route::put('/panel/user/{id}', [UsersController::class, 'update']);
     Route::delete('/panel/user/{id}', [UsersController::class, 'delete']);

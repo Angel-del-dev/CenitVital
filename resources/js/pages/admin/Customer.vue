@@ -12,26 +12,26 @@ import { onMounted, ref } from 'vue';
     
     onMounted(async () => {
         translation.value = await useLanguage(lang, 'generic');
-        page_location.value.push({ Caption: translation.value.page_admin_users, Link: `/${lang}/panel/users` });
-        if(user.id === undefined) page_location.value.push({ Caption: translation.value.new, Link: `/${lang}/panel/users/new` });
-        else page_location.value.push({ Caption: user.id, Link: `/${lang}/panel/users/${user.id}` });
+        page_location.value.push({ Caption: translation.value.page_admin_customers, Link: `/${lang}/panel/customers` });
+        if(user.id === undefined) page_location.value.push({ Caption: translation.value.new, Link: `/${lang}/panel/customers/new` });
+        else page_location.value.push({ Caption: user.id, Link: `/${lang}/panel/customers/${user.id}` });
     });
 </script>
 <template>
-    <Head :title="translation.page_admin_users" />
+    <Head :title="translation.page_admin_customers" />
     <Panel 
         :menu="menu"
         :breadcumbs="page_location" 
         :lang="lang"
         :translation="translation"
-        active="page_admin_users"
+        active="page_admin_customers"
     >
       <UserHandler
         :translation="translation"
         :user="user"
         :lang="lang"
         :creation="creation"
-        :redirect="`/${lang}/panel/users`"
+        :redirect="`/${lang}/panel/customers`"
       />  
     </Panel>
 </template>
