@@ -29,7 +29,8 @@ import { ChevronLeft, ChevronRightIcon } from 'lucide-vue-next';
         color: var(--white);
         cursor: pointer;
         font-size: 1.2rem;
-        height: 5vmin;
+        min-height: 5vmin;
+        height: fit-content;
     }
 
     button:first-of-type {
