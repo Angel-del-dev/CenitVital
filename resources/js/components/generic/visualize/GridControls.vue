@@ -29,8 +29,7 @@ import { ChevronLeft, ChevronRightIcon } from 'lucide-vue-next';
         color: var(--white);
         cursor: pointer;
         font-size: 1.2rem;
-        min-height: 5vmin;
-        height: fit-content;
+        height: 5vmin;
     }
 
     button:first-of-type {
@@ -43,5 +42,11 @@ import { ChevronLeft, ChevronRightIcon } from 'lucide-vue-next';
 
     button[active="false"] {
         color: lightgray;
+    }
+
+    @media screen and (max-width: 750px) {
+        button {
+            height: 10vmin;
+        }
     }
 </style>
