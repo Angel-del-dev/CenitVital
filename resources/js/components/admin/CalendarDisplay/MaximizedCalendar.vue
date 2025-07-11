@@ -18,10 +18,12 @@ const calendarOptions = {
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
     },
     dateClick: dateClickInfo => console.log(dateClickInfo.date),
+    eventClick: eventClickInfo => console.log(eventClickInfo.event.start),
     events: [
-        { title: 'event 1', date: '2025-07-11', color : '#C00' },
-        { title: 'event 2', date: '2025-07-11', color: 'green' },
-    ]
+        { title: 'event 1', date: '2025-07-11T14:30:00', color : '#C00' },
+        { title: 'event 2', date: '2025-07-11T18:30:00', color: 'green' },
+    ],
+    timeFormat: 'H(:mm)'
 }
 </script>
 <template>
