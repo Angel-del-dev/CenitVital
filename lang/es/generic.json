@@ -61,5 +61,8 @@
     "months_december": "Diciembre",
     "customer": "Cliente",
     "duration": "Duración",
-    "color": "Color"
+    "color": "Color",
+
+    "event_subject": "Asunto",
+    "event_start_at": "Hora de entrada"
 }

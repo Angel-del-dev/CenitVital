@@ -9,7 +9,9 @@ import { reactive, ref } from 'vue'
 import _default from '@fullcalendar/daygrid'
 import { fillStart } from '@/composables/utils'
 
-const { lang, loading, translation } = defineProps(['lang', 'loading', 'translation']);
+const { lang, loading, translation, events, categories } = defineProps(
+    ['lang', 'loading', 'translation', 'events', 'categories']
+);
 const requested_date = ref({});
 
 const dateClick = dateClickInfo => {
@@ -31,19 +33,17 @@ const close_date_manager = () => {
 
 const calendarOptions = reactive({
     plugins: [ listPlugin, dayGridPlugin, interactionPlugin, timeGridPlugin ],
-    initialView: 'dayGridWeek',
+    initialView: 'listWeek',
     locale: lang,
     firstDay: 1,
     headerToolbar: {
         left: 'prev,next',
         center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+        // right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+        right: 'dayGridMonth,listWeek'
     },
     dateClick, eventClick,
-    events: [
-        { title: 'event 1', date: '2025-07-11T14:30:00', color : '#C00' },
-        { title: 'event 2', date: '2025-07-11T18:30:00', color: 'green' },
-    ]
+    events
 });
 
 loading(false);
@@ -55,5 +55,6 @@ loading(false);
     :close="close_date_manager"
     :requested_date="requested_date"
     :translation="translation"
+    :categories="categories"
   />
 </template>

@@ -1,8 +1,14 @@
 <script setup>
 import { X } from 'lucide-vue-next';
 import Text from '@/components/generic/inputs/Text.vue';
+import Combobox from '@/components/generic/inputs/Combobox.vue';
+import TextArea from '@/components/generic/inputs/TextArea.vue';
+import Button from '@/components/generic/Button.vue';
 
-    const { close, requested_date, translation } = defineProps(['close', 'requested_date', 'translation']);
+const { close, requested_date, translation, categories } = defineProps(
+    ['close', 'requested_date', 'translation', 'categories']
+);
+console.log(categories)
 </script>
 <template>
     <div 
@@ -19,8 +25,26 @@ import Text from '@/components/generic/inputs/Text.vue';
             <div
                 class="w-100 grow-1 overflow-y-auto"
             >
-                <Text type="date" :value="requested_date.dateStr" :label="translation.date"/>
+                <div
+                    class="w-100 flex justify-center align-center gap-2"
+                >
+                    <Text type="date" :value="requested_date.dateStr" :label="translation.date"/>
+                    <Text type="time" :label="translation.event_start_at"/>
+                </div>
                 <Text type="text" placeholder="TODO Searcher" :label="translation.customer" />
+                <Combobox
+                    :label="translation.page_admin_categories"
+                    :values="categories"
+                />
+
+                <Text type="text" :placeholder="translation.event_subject" :label="translation.event_subject"/>
+                <TextArea :label="translation.observations" :placeholder="translation.observations" />
+                
+                <div
+                    class="pt-1 w-100 flex justify-end align-center gap-2"
+                >
+                    <Button palette='primary'>{{ translation.confirm }}</Button>
+                </div>
             </div>
         </div>
     </div>
@@ -37,7 +61,7 @@ import Text from '@/components/generic/inputs/Text.vue';
     }
     .events-manager {
         background-color: var(--white);
-        width: 40vmin;
+        width: 60svw;
     }
 
     @media screen and (max-width: 750px) {

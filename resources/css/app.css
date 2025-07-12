@@ -59,6 +59,13 @@ body {
 .m-4 { margin: 20px; }
 .m-5 { margin: 25px; }
 
+.pt-0 { padding-top: 0; }
+.pt-1 { padding-top: 5px; }
+.pt-2 { padding-top: 10px; }
+.pt-3 { padding-top: 15px; }
+.pt-4 { padding-top: 20px; }
+.pt-5 { padding-top: 25px; }
+
 .ml-auto { margin-left: auto; }
 .ml-right { margin-right: auto; }
 

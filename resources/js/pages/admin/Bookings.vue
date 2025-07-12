@@ -6,7 +6,7 @@ import { useLanguage } from '@/composables/useLanguage';
 import { Head } from '@inertiajs/vue3';
 import { onMounted, ref } from 'vue';
 
-    const { menu, lang } = defineProps(['menu', 'lang']);
+    const { menu, lang, categories } = defineProps(['menu', 'lang', 'categories']);
     const loading = ref(true);
     let translation = ref({});
     const page_location = ref([]);
@@ -15,6 +15,10 @@ import { onMounted, ref } from 'vue';
         translation.value = await useLanguage(lang, 'generic');
         page_location.value.push({ Caption: translation.value.page_admin_bookings, Link: `/${lang}/panel/bookings` });
     });
+    const events = [
+        { title: 'Masaje tradicional', date: '2025-07-12T14:30:00', color : '#C00' },
+        { title: 'Masaje deportivo', date: '2025-07-12T18:30:00', color: 'green' },
+    ];
 </script>
 <template>
 <Head :title="translation.page_admin_bookings" />
@@ -29,6 +33,8 @@ import { onMounted, ref } from 'vue';
         :lang="lang"
         :loading="(bool) => loading = bool"
         :translation="translation"
+        :events="events"
+        :categories="categories"
     />
     </Panel>
     <Loader v-if="loading" :message='translation.loading' />
