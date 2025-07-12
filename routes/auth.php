@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Generic\BookingController;
 use App\Http\Controllers\guest\GuestDashboardController;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,9 @@ Route::middleware('auth')->group(function () {
 
     /* Admin Bookings */
     Route::get('{lang}/panel/bookings', [BookingController::class, 'create']);
+
+    /* Admin Categories */
+    Route::get('{lang}/panel/categories', [CategoryController::class, 'create']);
 
     // Guest panel
     Route::get('{lang}/my-place', [GuestDashboardController::class, 'create']);

@@ -11,6 +11,11 @@ class AdminMenu {
                 "icon" => "ChartPie"
             ],
             [
+                "code" => 'page_admin_categories',
+                "link" => "/{$lang}/panel/categories",
+                "icon" => "Activity"
+            ],
+            [
                 "code" => 'page_admin_bookings',
                 "link" => "/{$lang}/panel/bookings",
                 "icon" => 'CalendarDays'

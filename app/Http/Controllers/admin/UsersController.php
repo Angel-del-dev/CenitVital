@@ -21,7 +21,7 @@ class UsersController extends Controller
         foreach($users as $user) {
             $final_users[] = [$user->id, $user->name];
         }    
-        return Inertia::render('admin/Users',[
+        return Inertia::render('admin/Users/Users',[
             'lang' => $lang,
             'users' => $final_users,
             'menu' => (new AdminMenu())->GetMenu($lang)
@@ -30,7 +30,7 @@ class UsersController extends Controller
 
     public function create_new(string $lang) {
         if(Auth::user()->role->name !== 'ADMIN') return redirect("/{$lang}/my-place");
-        return Inertia::render('admin/User',[
+        return Inertia::render('admin/Users/User',[
             'lang' => $lang,
             'user' => ['user_role_id' => 1],
             'menu' => (new AdminMenu())->GetMenu($lang),
@@ -43,7 +43,7 @@ class UsersController extends Controller
         $user = User::where('id', '=', $id)
             ->first()
             ->toArray();
-        return Inertia::render('admin/User',[
+        return Inertia::render('admin/Users/User',[
             'lang' => $lang,
             'user' => $user,
             'menu' => (new AdminMenu())->GetMenu($lang),
@@ -60,7 +60,7 @@ class UsersController extends Controller
         foreach($users as $user) {
             $final_users[] = [$user->id, $user->name];
         }    
-        return Inertia::render('admin/Customers',[
+        return Inertia::render('admin/Customers/Customers',[
             'lang' => $lang,
             'users' => $final_users,
             'menu' => (new AdminMenu())->GetMenu($lang)
@@ -69,7 +69,7 @@ class UsersController extends Controller
 
     public function create_new_customer(string $lang) {
         if(Auth::user()->role->name !== 'ADMIN') return redirect("/{$lang}/my-place");
-        return Inertia::render('admin/Customer',[
+        return Inertia::render('admin/Customers/Customer',[
             'lang' => $lang,
             'user' => ['user_role_id' => 2],
             'menu' => (new AdminMenu())->GetMenu($lang),
@@ -82,7 +82,7 @@ class UsersController extends Controller
         $user = User::where('id', '=', $id)
             ->first()
             ->toArray();
-        return Inertia::render('admin/Customer',[
+        return Inertia::render('admin/Customers/Customer',[
             'lang' => $lang,
             'user' => $user,
             'menu' => (new AdminMenu())->GetMenu($lang),
