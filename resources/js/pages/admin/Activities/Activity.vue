@@ -39,7 +39,7 @@ import Confirm from '@/components/admin/Confirm.vue';
         if(isEmpty(name)) return error_message.value = translation.value.user_empty;
         if(duration === 0) return error_message.value = translation.value.duration_empty;
         if(isEmpty(color)) color = '#000';
-        if(isEmpty(observation)) observation = ' ';
+        if(isEmpty(observation)) return error_message.value = translation.value.observation_empty;
         const { code, message } = await doFetch(
             `/panel/categories${is_new ? '' : '/'+category.id}`,
             is_new ? 'POST' : 'PUT',

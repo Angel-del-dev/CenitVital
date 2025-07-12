@@ -34,6 +34,7 @@
 
     "user_empty": "Debe indicar un nombre",
     "duration_empty": "Debe indicar una duración válida",
+    "observation_empty": "Debe indicar unas observaciones válidas",
 
     "email_empty": "El correo electrónico debe tener valor",
     "confirm_delete_user": "¿Quieres eliminar el usuario? El proceso es irreversible",

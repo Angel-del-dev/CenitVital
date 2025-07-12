@@ -34,6 +34,7 @@
 
     "user_empty": "A name must be given",
     "duration_empty": "A valid duration must be given",
+    "observation_empty": "A valid observation must be given",
     
     "email_empty": "Email must be provided",
     "confirm_delete_user": "Do you want to remove the given user? The process cannot be undone",
