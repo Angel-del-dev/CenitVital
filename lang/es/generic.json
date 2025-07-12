@@ -22,6 +22,7 @@
     "phone": "Teléfono",
     "observations": "Observaciones",
     "birth": "Fecha de nacimiento",
+    "date": "Fecha",
     "confirm": "Confirmar",
     "cancel": "Cancelar",
     "delete": "Eliminar",
@@ -48,5 +49,6 @@
     "months_september": "Septiembre",
     "months_october": "Octubre",
     "months_november": "Noviembre",
-    "months_december": "Diciembre"
+    "months_december": "Diciembre",
+    "customer": "Cliente"
 }

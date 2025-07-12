@@ -13,7 +13,6 @@ import { onMounted, ref } from 'vue';
     
     onMounted(async () => {
         translation.value = await useLanguage(lang, 'generic');
-        loading.value = false;
         page_location.value.push({ Caption: translation.value.page_admin_bookings, Link: `/${lang}/panel/bookings` });
     });
 </script>
@@ -28,6 +27,8 @@ import { onMounted, ref } from 'vue';
     >
     <MaximizedCalendar
         :lang="lang"
+        :loading="(bool) => loading = bool"
+        :translation="translation"
     />
     </Panel>
     <Loader v-if="loading" :message='translation.loading' />
