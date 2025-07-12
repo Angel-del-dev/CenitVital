@@ -18,11 +18,11 @@ import { onMounted, ref } from 'vue';
     });
 
     const select_activity = (row) => {
-        console.log(row);
+        location.href = `/${lang}/panel/categories/edit/${row.id}`;
     };
 
     const on_new = () => {
-        
+        location.href = `/${lang}/panel/categories/new`;
     };
 </script>
 <template>

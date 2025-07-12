@@ -17,6 +17,7 @@
     "page_admin_products": "Products",
     "page_admin_bookings": "Bookings",
     "page_admin_categories": "Activities",
+    "id": "Code",
     "user": "User",
     "name": "Name",
     "new": "New",
@@ -27,10 +28,16 @@
     "cancel": "Cancel",
     "confirm": "Confirm",
     "delete": "Remove",
+
     "user_exists": "The user already exists",
+    "category_exists": "The activity already exists",
+
     "user_empty": "A name must be given",
+    "duration_empty": "A valid duration must be given",
+    
     "email_empty": "Email must be provided",
     "confirm_delete_user": "Do you want to remove the given user? The process cannot be undone",
+    "confirm_delete_category": "Do you want to remove the given category? The process cannot be undone",
     "loading": "Loading...",
     "days_monday": "Monday",
     "days_tuesday": "Tuesday",
@@ -51,5 +58,7 @@
     "months_october": "October",
     "months_november": "November",
     "months_december": "December",
-    "customer": "Customer"
+    "customer": "Customer",
+    "duration": "Duration",
+    "color": "Color"
 }

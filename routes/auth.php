@@ -34,6 +34,12 @@ Route::middleware('auth')->group(function () {
 
     /* Admin Categories */
     Route::get('{lang}/panel/categories', [CategoryController::class, 'create']);
+    Route::get('{lang}/panel/categories/new', [CategoryController::class, 'create_new']);
+    Route::get('{lang}/panel/categories/edit/{id}', [CategoryController::class, 'modify']);
+
+    Route::post('/panel/categories', [CategoryController::class, 'store']);
+    Route::put('/panel/categories/{id}', [CategoryController::class, 'update']);
+    Route::delete('/panel/categories/{id}', [CategoryController::class, 'delete']);
 
     // Guest panel
     Route::get('{lang}/my-place', [GuestDashboardController::class, 'create']);

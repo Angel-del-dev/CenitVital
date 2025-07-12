@@ -1,8 +1,12 @@
 <script setup>
     const { 
-        type, label, placeholder, update, value 
-    } = defineProps(['type', 'label', 'placeholder', 'update', 'value']);
+        type, label, placeholder, update, value, maxlength, input
+    } = defineProps(['type', 'label', 'placeholder', 'update', 'value', 'maxlength', 'input']);
     const keyup = e => update(e.target.value.trim());
+
+    const handleInput = e => {
+        if(input !== undefined) input(e.target.value);
+    }
 </script>
 
 <template>
@@ -15,6 +19,8 @@
             @keyup="keyup"
             :type="type" :placeholder="placeholder" 
             :value="value"
+            :maxlength="maxlength"
+            @input="handleInput"
         />
     </div>
 </template>

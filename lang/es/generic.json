@@ -17,6 +17,7 @@
     "page_admin_products": "Artículos",
     "page_admin_bookings": "Reservas",
     "page_admin_categories": "Actividades",
+    "id": "Código",
     "user": "Usuario",
     "name": "Nombre",
     "new": "Nuevo",
@@ -27,10 +28,16 @@
     "confirm": "Confirmar",
     "cancel": "Cancelar",
     "delete": "Eliminar",
+
     "user_exists": "El usuario ya existe",
-    "user_empty": "Debe indicar un nombre para el usuario",
+    "category_exists": "La actividad indicada ya existe",
+
+    "user_empty": "Debe indicar un nombre",
+    "duration_empty": "Debe indicar una duración válida",
+
     "email_empty": "El correo electrónico debe tener valor",
     "confirm_delete_user": "¿Quieres eliminar el usuario? El proceso es irreversible",
+    "confirm_delete_category": "¿Quieres eliminar la categoria? El proceso es irreversible",
     "loading": "Cargando...",
     "days_monday": "Lunes",
     "days_tuesday": "Martes",
@@ -51,5 +58,7 @@
     "months_october": "Octubre",
     "months_november": "Noviembre",
     "months_december": "Diciembre",
-    "customer": "Cliente"
+    "customer": "Cliente",
+    "duration": "Duración",
+    "color": "Color"
 }
