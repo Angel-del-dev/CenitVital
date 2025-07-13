@@ -52,7 +52,7 @@ class DashboardController extends Controller
         ])
             ->whereYear('date', Carbon::now()->year)
             ->groupBy(DB::raw("DATE_FORMAT(date, '%Y-%m')"))
-            ->orderBy(DB::raw("DATE_FORMAT(date, '%Y-%m')"), 'asc')
+            ->orderBy(DB::raw("DATE_FORMAT(date, '%Y-%m')"), 'desc')
             ->get()
             ->toArray();
     }
