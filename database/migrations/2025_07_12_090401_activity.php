@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name', 100)->unique();
             $table->integer('duration');
             $table->string('color', 20);
-            $table->text('observation');
+            $table->text('observation')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('activities');
     }
 };

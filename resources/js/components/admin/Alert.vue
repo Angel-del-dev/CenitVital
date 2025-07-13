@@ -29,7 +29,7 @@ import { X } from 'lucide-vue-next';
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 10;
+        z-index: 15;
     }
     .alert {
         box-shadow: 2px 2px 2px 2px lightgray;

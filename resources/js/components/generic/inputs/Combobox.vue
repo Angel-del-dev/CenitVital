@@ -1,12 +1,15 @@
 <script setup>
-    const { label, values, update } = defineProps(['label', 'values', 'update']);
+    const { label, values, update, required } = defineProps(['label', 'values', 'update', 'required']);
     
 </script>
 <template>
     <div
         class="w-100 flex justify-start align-start direction-column gap-1"
     >
-        <label class="w-100">{{label}}</label>
+        <label class="w-100">
+            {{label}}
+            <span v-if="required" class="text-red">*</span>
+        </label>
         <select
             class="w-100 p-1 radius-auto pointer"
             @change="(e) => update(e.target.value)"

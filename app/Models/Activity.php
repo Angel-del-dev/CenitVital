@@ -13,4 +13,8 @@ class Activity extends Model
         'color',
         'observation'
     ];
+
+    public function events() {
+        return $this->hasMany(Events::class, 'activities_id', 'id');
+    }
 }

@@ -18,7 +18,7 @@ import { LoaderCircle } from 'lucide-vue-next';
     div {
         width: 100svw;
         height: 100svh;
-        z-index: 11;
+        z-index: 20;
         position: absolute;
         top: 0;
         left: 0;

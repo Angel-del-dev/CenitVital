@@ -4,10 +4,47 @@ import Text from '@/components/generic/inputs/Text.vue';
 import Combobox from '@/components/generic/inputs/Combobox.vue';
 import TextArea from '@/components/generic/inputs/TextArea.vue';
 import Button from '@/components/generic/Button.vue';
+import { ref } from 'vue';
+import Alert from '../Alert.vue';
+import { isEmpty } from '@/composables/utils';
+import { doFetch } from '@/composables/doFetch';
 
 const { close, requested_date, translation, categories, customers } = defineProps(
     ['close', 'requested_date', 'translation', 'categories', 'customers']
 );
+categories.unshift({id: '', caption: ''});
+customers.unshift({id: '', caption: ''});
+
+const event = ref({
+    date: requested_date.dateStr,
+    timestart: '',
+    customer: '',
+    activity: '',
+    subject: '',
+    observation: ''
+});
+
+const error_message = ref('');
+
+const confirm_event = async () => {
+    const { date, timestart, customer, activity, subject, observation } = event.value;
+
+    if(
+        isEmpty(date) ||
+        isEmpty(timestart) ||
+        isEmpty(customer) ||
+        isEmpty(activity) ||
+        isEmpty(subject)
+    ) return error_message.value = translation.required_empty;
+    
+    const { code, message } = await doFetch(
+        `/panel/bookings${requested_date.is_new ? '' : `/${requested_date.id}`}`,
+        requested_date.is_new ? 'POST' : 'PUT',
+        event.value
+    );
+    if(code === 200) return location.reload();
+    error_message.value = message;
+};
 
 </script>
 <template>
@@ -28,30 +65,53 @@ const { close, requested_date, translation, categories, customers } = defineProp
                 <div
                     class="w-100 flex justify-center align-center gap-2"
                 >
-                    <Text type="date" :value="requested_date.dateStr" :label="translation.date"/>
-                    <Text type="time" :label="translation.event_start_at"/>
+                    <Text type="date" :value="event.date" :label="translation.date"
+                        :update="value => event.date = value"
+                        :input="value => event.date = value"
+                        :required="true"
+                    />
+                    <Text type="time" :value="event.timestart" :label="translation.event_start_at"
+                        :update="value => event.timestart = value"
+                        :input="value => event.timestart = value"
+                        :required="true"
+                    />
                 </div>
                 <!-- <Text type="text" placeholder="TODO Searcher" :label="translation.customer" /> -->
                 <Combobox 
                     :label="translation.customer"
                     :values="customers"
+                    :update="value => event.customer = value"
+                    :required="true"
                 />
                 <Combobox
                     :label="translation.page_admin_categories"
                     :values="categories"
+                    :update="value => event.activity = value"
+                    :required="true"
                 />
 
-                <Text type="text" :placeholder="translation.event_subject" :label="translation.event_subject"/>
-                <TextArea :label="translation.observations" :placeholder="translation.observations" />
+                <Text type="text" :maxlength="100" :value="event.subject" :placeholder="translation.event_subject" :label="translation.event_subject"
+                    :update="value => event.subject = value"
+                    :required="true"
+                />
+                <TextArea :value="event.observation" :label="translation.observations" :placeholder="translation.observations" 
+                    :update="value => event.observation = value"
+                />
                 
                 <div
                     class="pt-1 w-100 flex justify-end align-center gap-2"
                 >
-                    <Button palette='primary'><Check />{{ translation.confirm }}</Button>
+                    <Button :click="confirm_event" palette='primary'><Check />{{ translation.confirm }}</Button>
                 </div>
             </div>
         </div>
     </div>
+    <Alert
+        :active="error_message !== ''"
+        :on_cancel="() => error_message = ''"
+    >
+        {{ error_message }}
+    </Alert>
 </template>
 <style scoped>
     .date-manager {

@@ -15,7 +15,7 @@ const { lang, loading, translation, events, categories, customers } = defineProp
 const requested_date = ref({});
 
 const dateClick = dateClickInfo => {
-    requested_date.value.new = true;
+    requested_date.value.is_new = true;
     const day = fillStart(dateClickInfo.date.getDate(), '0', 2);
     const month = fillStart(dateClickInfo.date.getMonth() + 1, '0', 2);
     requested_date.value.format = `${day}/${month}/${dateClickInfo.date.getFullYear()}`;
@@ -23,7 +23,7 @@ const dateClick = dateClickInfo => {
 };
 
 const eventClick = eventClickInfo => {
-    requested_date.value.new = false;
+    requested_date.value.is_new = false;
     // loading(true);
 }
 
@@ -33,7 +33,7 @@ const close_date_manager = () => {
 
 const calendarOptions = reactive({
     plugins: [ listPlugin, dayGridPlugin, interactionPlugin, timeGridPlugin ],
-    initialView: 'listWeek',
+    initialView: 'dayGridMonth',
     locale: lang,
     firstDay: 1,
     headerToolbar: {

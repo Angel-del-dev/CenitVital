@@ -1,7 +1,7 @@
 <script setup>
     const { 
-        type, label, placeholder, update, value, maxlength, input
-    } = defineProps(['type', 'label', 'placeholder', 'update', 'value', 'maxlength', 'input']);
+        type, label, placeholder, update, value, maxlength, input, required
+    } = defineProps(['type', 'label', 'placeholder', 'update', 'value', 'maxlength', 'input', 'required']);
     const keyup = e => update(e.target.value.trim());
 
     const handleInput = e => {
@@ -13,7 +13,10 @@
     <div
         class="w-100 flex justify-center align-start direction-column gap-1"
     >
-        <label class="w-100">{{ label }}</label>
+        <label class="w-100">
+            {{ label }}
+            <span v-if="required" class='text-red'>*</span>
+        </label>
         <input
             class="w-100 p-1"
             @keyup="keyup"
@@ -21,6 +24,7 @@
             :value="value"
             :maxlength="maxlength"
             @input="handleInput"
+            :required="required"
         />
     </div>
 </template>

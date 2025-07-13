@@ -31,6 +31,9 @@ Route::middleware('auth')->group(function () {
 
     /* Admin Bookings */
     Route::get('{lang}/panel/bookings', [BookingController::class, 'create']);
+    Route::post('/panel/bookings', [BookingController::class, 'store']);
+    Route::put('/panel/bookings/{id}', [BookingController::class, 'update']);
+    Route::delete('/panel/bookings/{id}', [BookingController::class, 'delete']);
 
     /* Admin Categories */
     Route::get('{lang}/panel/categories', [CategoryController::class, 'create']);
