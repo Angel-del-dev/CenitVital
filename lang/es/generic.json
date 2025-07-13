@@ -69,5 +69,6 @@
     "event_start_at": "Hora de entrada",
 
     "chart_new_customer": "Clientes nuevos",
-    "chart_since_last_month": "Desde el mes pasado"
+    "chart_since_last_month": "Desde el mes pasado",
+    "chart_total_events": "Nº de reservas"
 }

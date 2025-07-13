@@ -69,5 +69,6 @@
     "event_start_at": "Start at",
 
     "chart_new_customer": "New customers",
-    "chart_since_last_month": "Since las month"
+    "chart_since_last_month": "Since las month",
+    "chart_total_events": "Total bookings"
 }
