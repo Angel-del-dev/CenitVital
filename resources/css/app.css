@@ -29,6 +29,9 @@ body {
 .block { display: block; }
 .none { display: none; }
 
+.text-bold { font-weight: bold; }
+.text-normal { font-weight: normal; }
+
 .justify-start { justify-content: flex-start; }
 .justify-center { justify-content: center; }
 .justify-between { justify-content: space-between; }
@@ -122,4 +125,7 @@ body {
 
 
 .text-red { color: var(--red); }
+.text-green { color: var(--green); }
+.text-yellow { color: var(--yellow); }
 .text-white { color: var(--white); }
+.text-gray { color: gray; }
