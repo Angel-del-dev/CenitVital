@@ -12,28 +12,30 @@ import { doFetch } from '@/composables/doFetch';
 const { close, requested_date, translation, categories, customers } = defineProps(
     ['close', 'requested_date', 'translation', 'categories', 'customers']
 );
-categories.unshift({id: '', caption: ''});
-customers.unshift({id: '', caption: ''});
 
 const event = ref({
     date: requested_date.dateStr,
-    timestart: '',
-    customer: '',
-    activity: '',
-    subject: '',
-    observation: ''
+    id: requested_date.is_new ? '' : requested_date.id,
+    timestart: requested_date.is_new ? '' : requested_date.timestart,
+    customer: requested_date.is_new ? '' : requested_date.customer,
+    activity: requested_date.is_new ? '' : requested_date.activity,
+    subject: requested_date.is_new ? '' : requested_date.subject,
+    observation: requested_date.is_new ? '' : requested_date.observation
 });
+
+categories.forEach((category, _) => category.selected = category.value === requested_date.activity);
+customers.forEach((customer, _) => customer.selected = customer.value === requested_date.customer);
+
 
 const error_message = ref('');
 
 const confirm_event = async () => {
     const { date, timestart, customer, activity, subject, observation } = event.value;
-
     if(
         isEmpty(date) ||
         isEmpty(timestart) ||
-        isEmpty(customer) ||
-        isEmpty(activity) ||
+        customer === '' ||
+        activity === '' ||
         isEmpty(subject)
     ) return error_message.value = translation.required_empty;
     

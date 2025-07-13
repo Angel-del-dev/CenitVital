@@ -42,13 +42,14 @@ class BookingController extends Controller
                 'color' => '#'.$row['activity']['color']
             ];
         }
+        $Activities = Activity::all('id as value', 'name as caption')->toArray();
+        array_unshift($Activities, ['value' => '', 'caption' => '']);
 
-        // dd($events);
-
+        array_unshift($final_customers, ['value' => '', 'caption' => '']);
         return Inertia::render('admin/Bookings', [
             'lang' => $lang, 
             'menu' => (new AdminMenu())->GetMenu($lang),
-            'categories' => Activity::all('id as value', 'name as caption'),
+            'categories' => $Activities,
             'customers' => $final_customers,
             'events' => $events
         ]);
@@ -69,11 +70,29 @@ class BookingController extends Controller
 
     public function update(Request $req, int $id) {
         if(Auth::user()->role->name !== 'ADMIN') return response([], 404);
-        dd($req->all());
+        $request = $req->all();
+        Events::where('id', '=', $id)
+            ->update([
+                'date' => $request['date'].' '.$request['timestart'],
+                'user_id' => $request['customer'],
+                'activities_id' => $request['activity'],
+                'subject' => $request['subject'],
+                'observation' => $request['observation']
+            ]);
+        return response([], 200);
     }
 
     public function delete(int $id) {
         if(Auth::user()->role->name !== 'ADMIN') return response([], 404);
-        dd($id);
+        Events::where($id)
+            ->delete();
+    }
+
+    public function get_info(int $id) {
+        if(Auth::user()->role->name !== 'ADMIN') return response([], 404);
+        $evt = Events::where('id', '=', $id)
+            ->first()
+            ->toArray();
+        return response(['Info' => $evt], 200);
     }
 }
