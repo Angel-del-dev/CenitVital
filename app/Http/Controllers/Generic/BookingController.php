@@ -28,12 +28,29 @@ class BookingController extends Controller
 
         $caption = array_column($final_customers, 'caption');
         array_multisort($caption, SORT_DESC, $final_customers);
-        
+
+        $events = [];
+
+        $evt = Events::with('activity')
+            ->get()
+            ->toArray();
+        foreach($evt as $row) {
+            $events[] = [
+                'id' => $row['id'],
+                'title' => $row['subject'],
+                'date' => str_replace(' ', 'T', $row['date']),
+                'color' => '#'.$row['activity']['color']
+            ];
+        }
+
+        // dd($events);
+
         return Inertia::render('admin/Bookings', [
             'lang' => $lang, 
             'menu' => (new AdminMenu())->GetMenu($lang),
             'categories' => Activity::all('id as value', 'name as caption'),
-            'customers' => $final_customers
+            'customers' => $final_customers,
+            'events' => $events
         ]);
     }
 
