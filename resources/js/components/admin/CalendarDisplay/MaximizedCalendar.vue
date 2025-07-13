@@ -9,8 +9,8 @@ import { reactive, ref } from 'vue'
 import _default from '@fullcalendar/daygrid'
 import { fillStart } from '@/composables/utils'
 
-const { lang, loading, translation, events, categories } = defineProps(
-    ['lang', 'loading', 'translation', 'events', 'categories']
+const { lang, loading, translation, events, categories, customers } = defineProps(
+    ['lang', 'loading', 'translation', 'events', 'categories', 'customers']
 );
 const requested_date = ref({});
 
@@ -56,5 +56,6 @@ loading(false);
     :requested_date="requested_date"
     :translation="translation"
     :categories="categories"
+    :customers="customers"
   />
 </template>

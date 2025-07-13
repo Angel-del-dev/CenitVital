@@ -6,7 +6,7 @@ import { useLanguage } from '@/composables/useLanguage';
 import { Head } from '@inertiajs/vue3';
 import { onMounted, ref } from 'vue';
 
-    const { menu, lang, categories } = defineProps(['menu', 'lang', 'categories']);
+    const { menu, lang, categories, customers } = defineProps(['menu', 'lang', 'categories', 'customers']);
     const loading = ref(true);
     let translation = ref({});
     const page_location = ref([]);
@@ -35,6 +35,7 @@ import { onMounted, ref } from 'vue';
         :translation="translation"
         :events="events"
         :categories="categories"
+        :customers="customers"
     />
     </Panel>
     <Loader v-if="loading" :message='translation.loading' />

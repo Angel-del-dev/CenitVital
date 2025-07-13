@@ -1,14 +1,14 @@
 <script setup>
-import { X } from 'lucide-vue-next';
+import { Check, X } from 'lucide-vue-next';
 import Text from '@/components/generic/inputs/Text.vue';
 import Combobox from '@/components/generic/inputs/Combobox.vue';
 import TextArea from '@/components/generic/inputs/TextArea.vue';
 import Button from '@/components/generic/Button.vue';
 
-const { close, requested_date, translation, categories } = defineProps(
-    ['close', 'requested_date', 'translation', 'categories']
+const { close, requested_date, translation, categories, customers } = defineProps(
+    ['close', 'requested_date', 'translation', 'categories', 'customers']
 );
-console.log(categories)
+
 </script>
 <template>
     <div 
@@ -31,7 +31,11 @@ console.log(categories)
                     <Text type="date" :value="requested_date.dateStr" :label="translation.date"/>
                     <Text type="time" :label="translation.event_start_at"/>
                 </div>
-                <Text type="text" placeholder="TODO Searcher" :label="translation.customer" />
+                <!-- <Text type="text" placeholder="TODO Searcher" :label="translation.customer" /> -->
+                <Combobox 
+                    :label="translation.customer"
+                    :values="customers"
+                />
                 <Combobox
                     :label="translation.page_admin_categories"
                     :values="categories"
@@ -43,7 +47,7 @@ console.log(categories)
                 <div
                     class="pt-1 w-100 flex justify-end align-center gap-2"
                 >
-                    <Button palette='primary'>{{ translation.confirm }}</Button>
+                    <Button palette='primary'><Check />{{ translation.confirm }}</Button>
                 </div>
             </div>
         </div>
