@@ -2,6 +2,7 @@
 import Panel from '@/components/admin/Panel.vue';
 import Card from '@/components/generic/cards/Card.vue';
 import DownloadApp from '@/components/generic/popup/DownloadApp.vue';
+import DataGrid from '@/components/generic/visualize/DataGrid.vue';
 import { useLanguage } from '@/composables/useLanguage';
 import { Head } from '@inertiajs/vue3';
 import { UsersRound } from 'lucide-vue-next';
