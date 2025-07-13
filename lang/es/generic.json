@@ -66,5 +66,8 @@
     "color": "Color",
 
     "event_subject": "Asunto",
-    "event_start_at": "Hora de entrada"
+    "event_start_at": "Hora de entrada",
+
+    "chart_new_customer": "Clientes nuevos",
+    "chart_since_last_month": "Desde el mes pasado"
 }

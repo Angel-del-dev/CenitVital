@@ -45,7 +45,7 @@ import { onMounted, ref } from 'vue';
                 >   
                     <div>
                         <span class="flex justify-start align-start gap-1">
-                            <span class="text-gray">Clientes nuevos</span>
+                            <span class="text-gray">{{ translation.chart_new_customer }}</span>
                             <span class="text-bold">{{ customers.current }}</span>
                         </span>
                         <span
@@ -55,7 +55,7 @@ import { onMounted, ref } from 'vue';
                             <span :class="customers_percentage_color">
                             {{ customers_percentage === 'NaN' ? customers_percentage : `${customers_percentage}%` }}
                             </span>
-                            desde el mes pasado
+                            {{ translation.chart_since_last_month }}
                         </span>
                     </div>
                     <UsersRound :size="30" class="dashboard-icon" style="background-color: var(--blue);" />
