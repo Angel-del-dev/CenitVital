@@ -5,13 +5,7 @@ import DownloadApp from '@/components/generic/popup/DownloadApp.vue';
 import { useLanguage } from '@/composables/useLanguage';
 import { Head } from '@inertiajs/vue3';
 import { UsersRound } from 'lucide-vue-next';
-import { computed, onMounted, ref } from 'vue';
-
-import { Line } from 'vue-chartjs';
-import { Chart as ChartJS, Title, Tooltip, LineElement, CategoryScale, LinearScale, PointElement } from 'chart.js';
-import DataGrid from '@/components/generic/visualize/DataGrid.vue';
-ChartJS.register(Title, Tooltip, LineElement, CategoryScale, LinearScale, PointElement);
-
+import { onMounted, ref } from 'vue';
 const { lang, menu, customers, events } = defineProps(['lang', 'menu', 'customers', 'events']);
 const loading = ref(true);
 let translation = ref({});
