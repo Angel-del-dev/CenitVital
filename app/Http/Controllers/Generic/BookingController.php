@@ -39,7 +39,7 @@ class BookingController extends Controller
                 'id' => $row['id'],
                 'title' => $row['subject'],
                 'date' => str_replace(' ', 'T', $row['date']),
-                'color' => '#'.$row['activity']['color']
+                'color' => $row['activity']['color']
             ];
         }
         $Activities = Activity::all('id as value', 'name as caption')->toArray();
