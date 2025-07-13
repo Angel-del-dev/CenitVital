@@ -40,6 +40,7 @@
     "email_empty": "El correo electrónico debe tener valor",
     "confirm_delete_user": "¿Quieres eliminar el usuario? El proceso es irreversible",
     "confirm_delete_category": "¿Quieres eliminar la categoria? El proceso es irreversible",
+    "confirm_delete_event": "¿Quieres eliminar el evento? El proceso es irreversible",
     "loading": "Cargando...",
     "days_monday": "Lunes",
     "days_tuesday": "Martes",

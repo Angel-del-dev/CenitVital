@@ -1,5 +1,5 @@
 <script setup>
-import { Check, X } from 'lucide-vue-next';
+import { Check, Trash, X } from 'lucide-vue-next';
 import Text from '@/components/generic/inputs/Text.vue';
 import Combobox from '@/components/generic/inputs/Combobox.vue';
 import TextArea from '@/components/generic/inputs/TextArea.vue';
@@ -8,6 +8,7 @@ import { ref } from 'vue';
 import Alert from '../Alert.vue';
 import { isEmpty } from '@/composables/utils';
 import { doFetch } from '@/composables/doFetch';
+import Confirm from '../Confirm.vue';
 
 const { close, requested_date, translation, categories, customers } = defineProps(
     ['close', 'requested_date', 'translation', 'categories', 'customers']
@@ -47,6 +48,18 @@ const confirm_event = async () => {
     if(code === 200) return location.reload();
     error_message.value = message;
 };
+
+const delete_event = async () => {
+    const { code, message } = await doFetch(
+        `/panel/bookings/${requested_date.id}`,
+        'delete'
+    );
+    if(code === 200) return location.reload();
+    error_message.value = message;
+};
+
+const ask_confirm = () => confirm_message.value = translation.confirm_delete_event;
+let confirm_message = ref('');
 
 </script>
 <template>
@@ -103,6 +116,8 @@ const confirm_event = async () => {
                 <div
                     class="pt-1 w-100 flex justify-end align-center gap-2"
                 >
+
+                    <Button v-if="!requested_date.is_new" :click="ask_confirm" palette='light-danger'><Trash />{{ translation.delete }}</Button>
                     <Button :click="confirm_event" palette='primary'><Check />{{ translation.confirm }}</Button>
                 </div>
             </div>
@@ -114,6 +129,12 @@ const confirm_event = async () => {
     >
         {{ error_message }}
     </Alert>
+    <Confirm
+        :active="confirm_message !== ''"
+        :on_cancel="() => confirm_message = ''"
+        :on_confirm="delete_event"
+        :translation="translation"
+    >{{ confirm_message }}</Confirm>
 </template>
 <style scoped>
     .date-manager {

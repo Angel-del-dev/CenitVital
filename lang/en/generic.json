@@ -40,6 +40,7 @@
     "email_empty": "Email must be provided",
     "confirm_delete_user": "Do you want to remove the given user? The process cannot be undone",
     "confirm_delete_category": "Do you want to remove the given category? The process cannot be undone",
+    "confirm_delete_event": "Do you want to remove the selected event? The process cannot be undone",
     "loading": "Loading...",
     "days_monday": "Monday",
     "days_tuesday": "Tuesday",

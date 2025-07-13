@@ -84,8 +84,9 @@ class BookingController extends Controller
 
     public function delete(int $id) {
         if(Auth::user()->role->name !== 'ADMIN') return response([], 404);
-        Events::where($id)
+        Events::where('id', '=', $id)
             ->delete();
+        return response([], 200);
     }
 
     public function get_info(int $id) {
