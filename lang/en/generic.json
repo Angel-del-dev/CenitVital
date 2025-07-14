@@ -67,6 +67,7 @@
 
     "event_subject": "Subject",
     "event_start_at": "Start at",
+    "event_finished": "Booking finished",
 
     "chart_new_customer": "New customers",
     "chart_since_last_month": "Since las month",

@@ -23,6 +23,7 @@ const dateClick = dateClickInfo => {
     const month = fillStart(dateClickInfo.date.getMonth() + 1, '0', 2);
     requested_date.value.format = `${day}/${month}/${dateClickInfo.date.getFullYear()}`;
     requested_date.value.dateStr = dateClickInfo.dateStr;
+    requested_date.value.finished = false;
     requested_date.value.activity = '';
     requested_date.value.customer = '';
 };
@@ -44,6 +45,7 @@ const eventClick = async eventClickInfo => {
     requested_date.value.timestart = time;
     requested_date.value.subject = Info.subject;
     requested_date.value.observation = Info.observation;
+    requested_date.value.finished = Info.finished === 1;
 }
 
 const close_date_manager = () => {

@@ -63,7 +63,8 @@ class BookingController extends Controller
             'user_id' => $request['customer'],
             'activities_id' => $request['activity'],
             'subject' => $request['subject'],
-            'observation' => $request['observation']
+            'observation' => $request['observation'],
+            'finished' => $request['finished'] ? 1 : 0
         ]);
         return response([], 200);
     }
@@ -77,7 +78,8 @@ class BookingController extends Controller
                 'user_id' => $request['customer'],
                 'activities_id' => $request['activity'],
                 'subject' => $request['subject'],
-                'observation' => $request['observation']
+                'observation' => $request['observation'],
+                'finished' => $request['finished'] ? 1 : 0
             ]);
         return response([], 200);
     }

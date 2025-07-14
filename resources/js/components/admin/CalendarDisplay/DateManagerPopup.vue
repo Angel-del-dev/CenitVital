@@ -9,6 +9,7 @@ import Alert from '../Alert.vue';
 import { isEmpty } from '@/composables/utils';
 import { doFetch } from '@/composables/doFetch';
 import Confirm from '../Confirm.vue';
+import Checkbox from '@/components/generic/inputs/Checkbox.vue';
 
 const { close, requested_date, translation, categories, customers } = defineProps(
     ['close', 'requested_date', 'translation', 'categories', 'customers']
@@ -21,8 +22,10 @@ const event = ref({
     customer: requested_date.is_new ? '' : requested_date.customer,
     activity: requested_date.is_new ? '' : requested_date.activity,
     subject: requested_date.is_new ? '' : requested_date.subject,
-    observation: requested_date.is_new ? '' : requested_date.observation
+    observation: requested_date.is_new ? '' : requested_date.observation,
+    finished: requested_date.finished
 });
+
 
 categories.forEach((category, _) => category.selected = category.value === requested_date.activity);
 customers.forEach((customer, _) => customer.selected = customer.value === requested_date.customer);
@@ -111,6 +114,11 @@ let confirm_message = ref('');
                 />
                 <TextArea :value="event.observation" :label="translation.observations" :placeholder="translation.observations" 
                     :update="value => event.observation = value"
+                />
+                <Checkbox
+                    :label="translation.event_finished"
+                    :checked="event.finished"
+                    :update="() => event.finished = !event.finished"
                 />
                 
                 <div

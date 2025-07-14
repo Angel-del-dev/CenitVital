@@ -12,7 +12,10 @@ class Events extends Model
         'user_id',
         'activities_id',
         'subject',
-        'observation'
+        'observation',
+        'finished',
+        'satisfaction',
+        'satisfaction_observations'
     ];
 
     public function activity() {
